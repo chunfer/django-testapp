@@ -1,0 +1,20 @@
+{% extends "users/base.html" %}
+
+{% block title %}
+    {{ block.super }}
+    Signup
+{% endblock %}
+
+{% block container %}
+
+    <form action="{% url 'users:signup' %}" method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button class="btn btn-primary btn-block mt-5" type="submit">Register!</button>
+
+    </form>
+    <a  href="{% url 'users:login' %}" class="fas fa-arrow-left" id="login-arrow"></a>
+
+{% endblock %}
